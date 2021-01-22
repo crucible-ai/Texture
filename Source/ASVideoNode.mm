@@ -156,10 +156,13 @@ static NSString * const kRate = @"rate";
     }
   }
   
-  if ([asset isPlayable] == NO) {
-    NSLog(@"Asset is not playable.");
-    return;
-  }
+//  Note(jr): this "patch" might actually break something,
+//  but it allows videos which weren't playing before to
+//  play successfully in the feed as of 1/21/21
+//  if ([asset isPlayable] == NO) {
+//    NSLog(@"Asset is not playable.");
+//    return;
+//  }
 
   AVPlayerItem *playerItem = [self constructPlayerItem];
   [self setCurrentItem:playerItem];
